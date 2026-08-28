@@ -33,8 +33,8 @@
 
   <title>Jaivik | Creative Movement & Natural Living</title>
   
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS (prebuilt - see README to regenerate) -->
+  <link rel="stylesheet" href="/styles.css" />
   
   <!-- Google Fonts: Syne & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,31 +42,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@1.35.0/dist/umd/lucide.min.js"
+          integrity="sha384-eZXpDHN86IMQuxntjYbYprDla50QW8NC+8P9nUywt9PSVNqZE2Ri3YZ2WWKoliDw"
+          crossorigin="anonymous"></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            jaivik: {
-              green: '#2f5d2f',     /* Official Brand Green */
-              dark: '#1c381c',
-              soil: '#181e18',
-              sand: '#f5f2eb',
-              lightSand: '#faf8f5',
-              accent: '#d4b483',
-              card: '#244724'
-            }
-          },
-          fontFamily: {
-            title: ['Syne', 'sans-serif'],
-            body: ['Plus Jakarta Sans', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
   <style>
     .font-title { font-family: 'Syne', sans-serif; }
     .font-body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -129,9 +108,37 @@
         <a href="#roots-symbol" class="hover:text-jaivik-green transition-colors">The Symbol</a>
         <a href="#contact" class="px-5 py-2 rounded-full border border-jaivik-soil/20 hover:border-jaivik-green hover:bg-jaivik-green hover:text-white transition-all">Contact</a>
       </nav>
-      <!-- Mobile Quick CTA -->
-      <a href="#contact" class="md:hidden text-xs font-semibold px-4 py-2 rounded-full bg-jaivik-green text-white">Contact</a>
+      <!-- Mobile menu toggle -->
+      <button
+        id="menu-toggle"
+        type="button"
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 rounded-full text-jaivik-soil hover:text-jaivik-green hover:bg-jaivik-soil/5 transition-colors"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg id="menu-icon-open" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
     </div>
+
+    <!-- Mobile menu panel -->
+    <nav
+      id="mobile-menu"
+      class="hidden md:hidden border-t border-jaivik-soil/10 bg-jaivik-sand/95 backdrop-blur-md"
+      aria-label="Mobile"
+    >
+      <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col gap-1 text-base font-medium">
+        <a href="#about" class="py-3 border-b border-jaivik-soil/5 hover:text-jaivik-green transition-colors">Who We Are</a>
+        <a href="#movement" class="py-3 border-b border-jaivik-soil/5 text-jaivik-green font-semibold">Jaivik Movement</a>
+        <a href="#roots-symbol" class="py-3 border-b border-jaivik-soil/5 hover:text-jaivik-green transition-colors">The Symbol</a>
+        <a href="#contact" class="mt-4 text-center px-5 py-3 rounded-full bg-jaivik-green text-white hover:bg-jaivik-dark transition-colors">Contact</a>
+      </div>
+    </nav>
   </header>
 
   <!-- HERO / UMBRELLA INTRO -->
@@ -180,7 +187,7 @@
           Explore Jaivik Movement
         </a>
         <a href="https://instagram.com/jaivikmovement" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-full border border-jaivik-soil/20 hover:border-jaivik-green hover:text-jaivik-green transition-all flex items-center gap-2">
-          <i data-lucide="instagram" class="w-4 h-4"></i> Follow Our Journey
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> Follow Our Journey
         </a>
       </div>
     </div>
@@ -347,8 +354,8 @@
   <!-- THE SYMBOL OF JAIVIK (LOGO BREAKDOWN) -->
   <section id="roots-symbol" class="py-24 px-6 bg-jaivik-lightSand border-b border-jaivik-soil/10">
     <div class="max-w-4xl mx-auto text-center mb-16">
-      <span class="text-xs font-semibold tracking-widest uppercase text-jaivik-green mb-3 block">Meaning & Identity.</span>
-      <h2 class="font-title text-3xl md:text-4xl font-bold text-jaivik-soil">The Symbol of Jaivik.</h2>
+      <span class="text-xs font-semibold tracking-widest uppercase text-jaivik-green mb-3 block">Meaning & Identity</span>
+      <h2 class="font-title text-3xl md:text-4xl font-bold text-jaivik-soil">The Symbol of Jaivik</h2>
       <p class="text-jaivik-soil/70 mt-3 max-w-xl mx-auto">
         Designed to be simple in illustration, but bold in what it stands for. A harmony of Sanskrit (ज) and English (J).
       </p>
@@ -356,19 +363,19 @@
 
     <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="p-6 rounded-2xl bg-white border border-jaivik-soil/5 shadow-sm">
-        <h4 class="font-title font-bold text-jaivik-green mb-1">Hemp Leaf & Natural Fiber.</h4>
+        <h4 class="font-title font-bold text-jaivik-green mb-1">Hemp Leaf & Natural Fiber</h4>
         <p class="text-sm text-jaivik-soil/70 leading-relaxed">Honoring the raw strength, breathability, and restorative power of natural hemp fibers.</p>
       </div>
       <div class="p-6 rounded-2xl bg-white border border-jaivik-soil/5 shadow-sm">
-        <h4 class="font-title font-bold text-jaivik-green mb-1">Transparency & Balance.</h4>
+        <h4 class="font-title font-bold text-jaivik-green mb-1">Transparency & Balance</h4>
         <p class="text-sm text-jaivik-soil/70 leading-relaxed">Designed to balance tradition with modern utility, breaking rigid grids to maintain organic equilibrium.</p>
       </div>
       <div class="p-6 rounded-2xl bg-white border border-jaivik-soil/5 shadow-sm">
-        <h4 class="font-title font-bold text-jaivik-green mb-1">Adaptability (Ebb & Flow).</h4>
+        <h4 class="font-title font-bold text-jaivik-green mb-1">Adaptability (Ebb & Flow)</h4>
         <p class="text-sm text-jaivik-soil/70 leading-relaxed">Reflecting our adaptability to natural cycles, mindful movement, and continuous creative growth.</p>
       </div>
       <div class="p-6 rounded-2xl bg-white border border-jaivik-soil/5 shadow-sm">
-        <h4 class="font-title font-bold text-jaivik-green mb-1">Heavy Base for a Weighted Cause.</h4>
+        <h4 class="font-title font-bold text-jaivik-green mb-1">Heavy Base for a Weighted Cause</h4>
         <p class="text-sm text-jaivik-soil/70 leading-relaxed">Rooted deeply in ethical production, community support in Nepal, and lasting environmental care.</p>
       </div>
     </div>
@@ -392,7 +399,7 @@
             <span>Kathmandu / London (and soon wild world 🌿)</span>
           </div>
           <div class="flex items-center gap-3 text-white/90">
-            <i data-lucide="instagram" class="w-4 h-4 text-jaivik-accent"></i>
+            <svg class="w-4 h-4 text-jaivik-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             <a href="https://instagram.com/jaivikmovement" target="_blank" rel="noopener noreferrer" class="hover:text-jaivik-accent transition-colors">@jaivikmovement</a>
           </div>
         </div>
@@ -413,6 +420,44 @@
   <script>
     // Render Icons
     lucide.createIcons();
+
+    // Mobile menu
+    (function () {
+      var btn = document.getElementById('menu-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('menu-icon-open');
+      var iconClose = document.getElementById('menu-icon-close');
+
+      function setOpen(open) {
+        menu.classList.toggle('hidden', !open);
+        iconOpen.classList.toggle('hidden', open);
+        iconClose.classList.toggle('hidden', !open);
+        btn.setAttribute('aria-expanded', String(open));
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+
+      btn.addEventListener('click', function () {
+        setOpen(menu.classList.contains('hidden'));
+      });
+
+      // Close after tapping a link
+      menu.addEventListener('click', function (e) {
+        if (e.target.closest('a')) setOpen(false);
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+          setOpen(false);
+          btn.focus();
+        }
+      });
+
+      // Reset when resizing up to the desktop nav
+      window.matchMedia('(min-width: 768px)').addEventListener('change', function (e) {
+        if (e.matches) setOpen(false);
+      });
+    })();
   </script>
 </body>
 </html>
