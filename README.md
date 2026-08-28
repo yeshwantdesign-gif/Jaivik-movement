@@ -141,11 +141,13 @@ git push                 # this deploys
 
 ## Known TODOs
 
-- **Canonical URL** — `index.html` claims the site lives at
-  `https://jaivikmovement.com/`, but that domain is currently parked and serves
-  nothing. Either point it at Vercel (`vercel domains add jaivikmovement.com`)
-  or change the `canonical` and `og:url` tags to the `.vercel.app` address.
-  Until then, search engines are being sent to a dead URL.
+- **Custom domain** — the `canonical` and `og:url` tags currently point at
+  `https://jaivik-movement.vercel.app/`, which is correct while that is the
+  live address. `jaivikmovement.com` is registered but parked. If it is ever
+  pointed at this project (`vercel domains add jaivikmovement.com`, then update
+  the nameservers), change `canonical`, `og:url` and the commented `og:image`
+  path in `index.html` to match — otherwise the new domain will be telling
+  search engines the real page is on `.vercel.app`.
 - **No social preview image** — add a 1200×630 `og-image.jpg`, then uncomment
   the four `og:image` tags near the top of `index.html` and switch
   `twitter:card` to `summary_large_image`.
